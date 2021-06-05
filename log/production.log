@@ -1,0 +1,318 @@
+D, [2021-02-19T21:24:55.740739 #11770] DEBUG -- :   [1m[35m (77.7ms)[0m  [1m[35mCREATE DATABASE "currency-calculator-api_production" ENCODING = 'unicode'[0m
+D, [2021-02-20T05:17:03.278596 #32890] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "currency-calculator-api_production" ENCODING = 'unicode'[0m
+D, [2021-02-20T05:17:11.942462 #32914] DEBUG -- :   [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+D, [2021-02-20T05:17:11.946781 #32914] DEBUG -- :   [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2021-02-20T05:17:11.947234 #32914] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4581621305611492905)[0m
+D, [2021-02-20T05:17:11.952431 #32914] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2021-02-20T05:17:11.953370 #32914]  INFO -- : Migrating to CreateCurrencies (20210220040753)
+D, [2021-02-20T05:17:11.956429 #32914] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2021-02-20T05:17:11.959821 #32914] DEBUG -- :   [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "currencies" ("id" bigserial primary key, "name" character varying, "rate" integer, "country" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2021-02-20T05:17:11.962703 #32914] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210220040753"]]
+D, [2021-02-20T05:17:11.963281 #32914] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2021-02-20T05:17:11.967342 #32914] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2021-02-20T05:17:11.972756 #32914] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2021-02-20T05:17:11.973493 #32914] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2021-02-20 04:17:11.972903"], ["updated_at", "2021-02-20 04:17:11.972903"]]
+D, [2021-02-20T05:17:11.974733 #32914] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2021-02-20T05:17:11.974970 #32914] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4581621305611492905)[0m
+I, [2021-02-20T05:56:35.290159 #34815]  INFO -- : [80e76173-6bf7-44c6-81f5-cd18dd4251f7] Started GET "/" for 127.0.0.1 at 2021-02-20 05:56:35 +0100
+F, [2021-02-20T05:56:35.290597 #34815] FATAL -- : [80e76173-6bf7-44c6-81f5-cd18dd4251f7]   
+F, [2021-02-20T05:56:35.290625 #34815] FATAL -- : [80e76173-6bf7-44c6-81f5-cd18dd4251f7] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2021-02-20T05:56:35.290639 #34815] FATAL -- : [80e76173-6bf7-44c6-81f5-cd18dd4251f7]   
+F, [2021-02-20T05:56:35.290655 #34815] FATAL -- : [80e76173-6bf7-44c6-81f5-cd18dd4251f7] actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[80e76173-6bf7-44c6-81f5-cd18dd4251f7] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2021-02-20T05:57:31.824304 #34815]  INFO -- : [df7c93b7-ab50-4433-afa8-c8149aeda578] Started GET "/" for 127.0.0.1 at 2021-02-20 05:57:31 +0100
+F, [2021-02-20T05:57:31.824709 #34815] FATAL -- : [df7c93b7-ab50-4433-afa8-c8149aeda578]   
+F, [2021-02-20T05:57:31.826913 #34815] FATAL -- : [df7c93b7-ab50-4433-afa8-c8149aeda578] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2021-02-20T05:57:31.827135 #34815] FATAL -- : [df7c93b7-ab50-4433-afa8-c8149aeda578]   
+F, [2021-02-20T05:57:31.827201 #34815] FATAL -- : [df7c93b7-ab50-4433-afa8-c8149aeda578] actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[df7c93b7-ab50-4433-afa8-c8149aeda578] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2021-02-20T05:57:56.622704 #34815]  INFO -- : [b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] Started GET "/" for 127.0.0.1 at 2021-02-20 05:57:56 +0100
+F, [2021-02-20T05:57:56.623237 #34815] FATAL -- : [b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b]   
+F, [2021-02-20T05:57:56.623330 #34815] FATAL -- : [b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2021-02-20T05:57:56.623355 #34815] FATAL -- : [b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b]   
+F, [2021-02-20T05:57:56.623383 #34815] FATAL -- : [b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[b5b7249e-39ab-44b3-a767-4b5bdc0e8e8b] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2021-02-20T06:01:20.831768 #34815]  INFO -- : [407dae88-83e7-4c2a-8f99-6bd438eb5e66] Started GET "/api/status" for 127.0.0.1 at 2021-02-20 06:01:20 +0100
+I, [2021-02-20T06:01:20.832539 #34815]  INFO -- : [407dae88-83e7-4c2a-8f99-6bd438eb5e66] Processing by ApplicationController#status as HTML
+I, [2021-02-20T06:01:20.833332 #34815]  INFO -- : [407dae88-83e7-4c2a-8f99-6bd438eb5e66] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+I, [2021-02-20T06:01:20.833562 #34815]  INFO -- : [407dae88-83e7-4c2a-8f99-6bd438eb5e66] Completed 200 OK in 1ms (Views: 0.7ms)
+I, [2021-02-20T06:01:20.854899 #34815]  INFO -- : [51c919ce-03ea-400f-b5b3-d0ff689941ac] Started GET "/favicon.ico" for 127.0.0.1 at 2021-02-20 06:01:20 +0100
+F, [2021-02-20T06:01:20.855227 #34815] FATAL -- : [51c919ce-03ea-400f-b5b3-d0ff689941ac]   
+F, [2021-02-20T06:01:20.855250 #34815] FATAL -- : [51c919ce-03ea-400f-b5b3-d0ff689941ac] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2021-02-20T06:01:20.855263 #34815] FATAL -- : [51c919ce-03ea-400f-b5b3-d0ff689941ac]   
+F, [2021-02-20T06:01:20.855279 #34815] FATAL -- : [51c919ce-03ea-400f-b5b3-d0ff689941ac] actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[51c919ce-03ea-400f-b5b3-d0ff689941ac] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2021-02-20T06:01:35.952677 #34815]  INFO -- : [5f95aae7-332f-4bab-a7cf-12d1bd20e995] Started GET "/api/status" for 127.0.0.1 at 2021-02-20 06:01:35 +0100
+I, [2021-02-20T06:01:35.953187 #34815]  INFO -- : [5f95aae7-332f-4bab-a7cf-12d1bd20e995] Processing by ApplicationController#status as HTML
+I, [2021-02-20T06:01:35.953554 #34815]  INFO -- : [5f95aae7-332f-4bab-a7cf-12d1bd20e995] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-20T06:01:35.953666 #34815]  INFO -- : [5f95aae7-332f-4bab-a7cf-12d1bd20e995] Completed 200 OK in 0ms (Views: 0.3ms)
+I, [2021-02-21T01:18:44.766443 #5355]  INFO -- : [9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] Started GET "/" for 127.0.0.1 at 2021-02-21 01:18:44 +0100
+F, [2021-02-21T01:18:44.767275 #5355] FATAL -- : [9a2d7018-8ed7-4e22-985e-31c60f5ffb0c]   
+F, [2021-02-21T01:18:44.767327 #5355] FATAL -- : [9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2021-02-21T01:18:44.767376 #5355] FATAL -- : [9a2d7018-8ed7-4e22-985e-31c60f5ffb0c]   
+F, [2021-02-21T01:18:44.767394 #5355] FATAL -- : [9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[9a2d7018-8ed7-4e22-985e-31c60f5ffb0c] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2021-02-21T01:18:57.875829 #5355]  INFO -- : [c99873b7-730c-4767-96dd-e50e2981d262] Started GET "/api/status" for 127.0.0.1 at 2021-02-21 01:18:57 +0100
+I, [2021-02-21T01:18:57.876313 #5355]  INFO -- : [c99873b7-730c-4767-96dd-e50e2981d262] Processing by ApplicationController#status as HTML
+I, [2021-02-21T01:18:57.876859 #5355]  INFO -- : [c99873b7-730c-4767-96dd-e50e2981d262] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+I, [2021-02-21T01:18:57.876984 #5355]  INFO -- : [c99873b7-730c-4767-96dd-e50e2981d262] Completed 200 OK in 1ms (Views: 0.4ms)
+I, [2021-02-21T01:18:57.896500 #5355]  INFO -- : [2763a12e-9d05-459b-9192-b22c0f74783c] Started GET "/favicon.ico" for 127.0.0.1 at 2021-02-21 01:18:57 +0100
+F, [2021-02-21T01:18:57.896819 #5355] FATAL -- : [2763a12e-9d05-459b-9192-b22c0f74783c]   
+F, [2021-02-21T01:18:57.896864 #5355] FATAL -- : [2763a12e-9d05-459b-9192-b22c0f74783c] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2021-02-21T01:18:57.896883 #5355] FATAL -- : [2763a12e-9d05-459b-9192-b22c0f74783c]   
+F, [2021-02-21T01:18:57.896899 #5355] FATAL -- : [2763a12e-9d05-459b-9192-b22c0f74783c] actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+[2763a12e-9d05-459b-9192-b22c0f74783c] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[2763a12e-9d05-459b-9192-b22c0f74783c] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+[2763a12e-9d05-459b-9192-b22c0f74783c] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+[2763a12e-9d05-459b-9192-b22c0f74783c] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[2763a12e-9d05-459b-9192-b22c0f74783c] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[2763a12e-9d05-459b-9192-b22c0f74783c] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[2763a12e-9d05-459b-9192-b22c0f74783c] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[2763a12e-9d05-459b-9192-b22c0f74783c] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2021-02-21T01:19:09.117229 #5355]  INFO -- : [fe288d46-8aa9-414a-90f8-6734db5d4c15] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-21 01:19:09 +0100
+I, [2021-02-21T01:19:09.117603 #5355]  INFO -- : [fe288d46-8aa9-414a-90f8-6734db5d4c15] Processing by CurrenciesController#index as HTML
+D, [2021-02-21T01:19:09.153317 #5355] DEBUG -- : [fe288d46-8aa9-414a-90f8-6734db5d4c15]   [1m[36mCurrency Load (0.8ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-21T01:19:09.153814 #5355]  INFO -- : [fe288d46-8aa9-414a-90f8-6734db5d4c15] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-21T01:19:09.153954 #5355]  INFO -- : [fe288d46-8aa9-414a-90f8-6734db5d4c15] Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 24.0ms)
+I, [2021-02-22T03:45:22.989611 #5355]  INFO -- : [47da10cd-cca4-403f-8281-6f4fe4c46ae2] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:22 +0100
+I, [2021-02-22T03:45:22.994148 #5355]  INFO -- : [47da10cd-cca4-403f-8281-6f4fe4c46ae2] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:23.022003 #5355] DEBUG -- : [47da10cd-cca4-403f-8281-6f4fe4c46ae2]   [1m[36mCurrency Load (0.8ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:23.023993 #5355]  INFO -- : [47da10cd-cca4-403f-8281-6f4fe4c46ae2] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+I, [2021-02-22T03:45:23.024540 #5355]  INFO -- : [47da10cd-cca4-403f-8281-6f4fe4c46ae2] Completed 200 OK in 30ms (Views: 1.5ms | ActiveRecord: 10.9ms)
+I, [2021-02-22T03:45:23.415801 #5355]  INFO -- : [40710efb-6441-4898-b337-5cf3b2a44ecc] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:23 +0100
+I, [2021-02-22T03:45:23.416467 #5355]  INFO -- : [40710efb-6441-4898-b337-5cf3b2a44ecc] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:23.417549 #5355] DEBUG -- : [40710efb-6441-4898-b337-5cf3b2a44ecc]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:23.418135 #5355]  INFO -- : [40710efb-6441-4898-b337-5cf3b2a44ecc] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+I, [2021-02-22T03:45:23.418291 #5355]  INFO -- : [40710efb-6441-4898-b337-5cf3b2a44ecc] Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:23.603898 #5355]  INFO -- : [39c24933-d75c-4250-b081-6a5c09e64620] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:23 +0100
+I, [2021-02-22T03:45:23.604323 #5355]  INFO -- : [39c24933-d75c-4250-b081-6a5c09e64620] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:23.605261 #5355] DEBUG -- : [39c24933-d75c-4250-b081-6a5c09e64620]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:23.605781 #5355]  INFO -- : [39c24933-d75c-4250-b081-6a5c09e64620] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+I, [2021-02-22T03:45:23.605908 #5355]  INFO -- : [39c24933-d75c-4250-b081-6a5c09e64620] Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:23.784764 #5355]  INFO -- : [b1adf057-a6b1-4694-bc58-f8c4d5739909] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:23 +0100
+I, [2021-02-22T03:45:23.785164 #5355]  INFO -- : [b1adf057-a6b1-4694-bc58-f8c4d5739909] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:23.785891 #5355] DEBUG -- : [b1adf057-a6b1-4694-bc58-f8c4d5739909]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:23.786209 #5355]  INFO -- : [b1adf057-a6b1-4694-bc58-f8c4d5739909] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+I, [2021-02-22T03:45:23.786328 #5355]  INFO -- : [b1adf057-a6b1-4694-bc58-f8c4d5739909] Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:23.947186 #5355]  INFO -- : [bc94d689-eb08-4be2-b8c9-98613f015a5a] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:23 +0100
+I, [2021-02-22T03:45:23.947552 #5355]  INFO -- : [bc94d689-eb08-4be2-b8c9-98613f015a5a] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:23.948472 #5355] DEBUG -- : [bc94d689-eb08-4be2-b8c9-98613f015a5a]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:23.948794 #5355]  INFO -- : [bc94d689-eb08-4be2-b8c9-98613f015a5a] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+I, [2021-02-22T03:45:23.948935 #5355]  INFO -- : [bc94d689-eb08-4be2-b8c9-98613f015a5a] Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:24.105997 #5355]  INFO -- : [59c34588-7637-4641-817c-fe8e153949f5] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:24 +0100
+I, [2021-02-22T03:45:24.106423 #5355]  INFO -- : [59c34588-7637-4641-817c-fe8e153949f5] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:24.107386 #5355] DEBUG -- : [59c34588-7637-4641-817c-fe8e153949f5]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:24.107712 #5355]  INFO -- : [59c34588-7637-4641-817c-fe8e153949f5] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-22T03:45:24.107836 #5355]  INFO -- : [59c34588-7637-4641-817c-fe8e153949f5] Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:24.278635 #5355]  INFO -- : [a1ce134a-9fa3-4ee3-b70e-8cfb41d4eafc] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:24 +0100
+I, [2021-02-22T03:45:24.278964 #5355]  INFO -- : [a1ce134a-9fa3-4ee3-b70e-8cfb41d4eafc] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:24.279793 #5355] DEBUG -- : [a1ce134a-9fa3-4ee3-b70e-8cfb41d4eafc]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:24.280093 #5355]  INFO -- : [a1ce134a-9fa3-4ee3-b70e-8cfb41d4eafc] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-22T03:45:24.280190 #5355]  INFO -- : [a1ce134a-9fa3-4ee3-b70e-8cfb41d4eafc] Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:24.437478 #5355]  INFO -- : [b01e3549-0c79-4572-9f2d-3f395d82b4e5] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:24 +0100
+I, [2021-02-22T03:45:24.437906 #5355]  INFO -- : [b01e3549-0c79-4572-9f2d-3f395d82b4e5] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:24.438686 #5355] DEBUG -- : [b01e3549-0c79-4572-9f2d-3f395d82b4e5]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:24.439042 #5355]  INFO -- : [b01e3549-0c79-4572-9f2d-3f395d82b4e5] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-22T03:45:24.439231 #5355]  INFO -- : [b01e3549-0c79-4572-9f2d-3f395d82b4e5] Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:24.599597 #5355]  INFO -- : [5db02e2d-2de9-4408-b13d-d1b715a87f9a] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:24 +0100
+I, [2021-02-22T03:45:24.600027 #5355]  INFO -- : [5db02e2d-2de9-4408-b13d-d1b715a87f9a] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:24.600996 #5355] DEBUG -- : [5db02e2d-2de9-4408-b13d-d1b715a87f9a]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:24.601493 #5355]  INFO -- : [5db02e2d-2de9-4408-b13d-d1b715a87f9a] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-22T03:45:24.601734 #5355]  INFO -- : [5db02e2d-2de9-4408-b13d-d1b715a87f9a] Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+I, [2021-02-22T03:45:24.767289 #5355]  INFO -- : [4411b6f1-6b3f-42e2-a5b2-18b3642b141d] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:24 +0100
+I, [2021-02-22T03:45:24.767630 #5355]  INFO -- : [4411b6f1-6b3f-42e2-a5b2-18b3642b141d] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:24.768396 #5355] DEBUG -- : [4411b6f1-6b3f-42e2-a5b2-18b3642b141d]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:24.768686 #5355]  INFO -- : [4411b6f1-6b3f-42e2-a5b2-18b3642b141d] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-22T03:45:24.768803 #5355]  INFO -- : [4411b6f1-6b3f-42e2-a5b2-18b3642b141d] Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:24.957113 #5355]  INFO -- : [5cdf1bc4-14a9-44f4-94cc-80e302cf1184] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:24 +0100
+I, [2021-02-22T03:45:24.957485 #5355]  INFO -- : [5cdf1bc4-14a9-44f4-94cc-80e302cf1184] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:24.958263 #5355] DEBUG -- : [5cdf1bc4-14a9-44f4-94cc-80e302cf1184]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:24.958721 #5355]  INFO -- : [5cdf1bc4-14a9-44f4-94cc-80e302cf1184] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+I, [2021-02-22T03:45:24.958874 #5355]  INFO -- : [5cdf1bc4-14a9-44f4-94cc-80e302cf1184] Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+I, [2021-02-22T03:45:25.456296 #5355]  INFO -- : [dd8e1d42-fe46-4e58-be45-0d4537bd0cbf] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:25 +0100
+I, [2021-02-22T03:45:25.456785 #5355]  INFO -- : [dd8e1d42-fe46-4e58-be45-0d4537bd0cbf] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:25.457846 #5355] DEBUG -- : [dd8e1d42-fe46-4e58-be45-0d4537bd0cbf]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:25.458278 #5355]  INFO -- : [dd8e1d42-fe46-4e58-be45-0d4537bd0cbf] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+I, [2021-02-22T03:45:25.458407 #5355]  INFO -- : [dd8e1d42-fe46-4e58-be45-0d4537bd0cbf] Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+I, [2021-02-22T03:45:25.647849 #5355]  INFO -- : [d2b97848-e225-4355-acd5-81576bf58180] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:45:25 +0100
+I, [2021-02-22T03:45:25.648255 #5355]  INFO -- : [d2b97848-e225-4355-acd5-81576bf58180] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:45:25.649307 #5355] DEBUG -- : [d2b97848-e225-4355-acd5-81576bf58180]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:45:25.649730 #5355]  INFO -- : [d2b97848-e225-4355-acd5-81576bf58180] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+I, [2021-02-22T03:45:25.649973 #5355]  INFO -- : [d2b97848-e225-4355-acd5-81576bf58180] Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+I, [2021-02-22T03:47:17.149382 #5355]  INFO -- : [fa811ea0-fe46-45f2-b219-df46fd960054] Started GET "/api/currencies" for 127.0.0.1 at 2021-02-22 03:47:17 +0100
+I, [2021-02-22T03:47:17.149753 #5355]  INFO -- : [fa811ea0-fe46-45f2-b219-df46fd960054] Processing by CurrenciesController#index as HTML
+D, [2021-02-22T03:47:17.150749 #5355] DEBUG -- : [fa811ea0-fe46-45f2-b219-df46fd960054]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" ASC[0m
+I, [2021-02-22T03:47:17.151167 #5355]  INFO -- : [fa811ea0-fe46-45f2-b219-df46fd960054] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+I, [2021-02-22T03:47:17.151290 #5355]  INFO -- : [fa811ea0-fe46-45f2-b219-df46fd960054] Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+I, [2021-02-25T00:08:58.635153 #116236]  INFO -- : [2aab0a89-dd6a-4180-b10d-28685bef25a8] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:08:58 +0100
+I, [2021-02-25T00:08:58.636305 #116236]  INFO -- : [2aab0a89-dd6a-4180-b10d-28685bef25a8] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:08:58.637463 #116236]  INFO -- : [2aab0a89-dd6a-4180-b10d-28685bef25a8] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+I, [2021-02-25T00:08:58.637653 #116236]  INFO -- : [2aab0a89-dd6a-4180-b10d-28685bef25a8] Completed 200 OK in 1ms (Views: 0.8ms)
+I, [2021-02-25T00:09:18.553515 #116236]  INFO -- : [71cffadb-9df4-4e97-b560-9bc567f696a8] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:09:18 +0100
+I, [2021-02-25T00:09:18.553960 #116236]  INFO -- : [71cffadb-9df4-4e97-b560-9bc567f696a8] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:09:18.554449 #116236]  INFO -- : [71cffadb-9df4-4e97-b560-9bc567f696a8] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+I, [2021-02-25T00:09:18.554636 #116236]  INFO -- : [71cffadb-9df4-4e97-b560-9bc567f696a8] Completed 200 OK in 1ms (Views: 0.3ms)
+I, [2021-02-25T00:09:27.155667 #116236]  INFO -- : [21a2689a-25e7-4e0e-829b-b600d11a6109] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:09:27 +0100
+I, [2021-02-25T00:09:27.156017 #116236]  INFO -- : [21a2689a-25e7-4e0e-829b-b600d11a6109] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:09:27.156547 #116236]  INFO -- : [21a2689a-25e7-4e0e-829b-b600d11a6109] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+I, [2021-02-25T00:09:27.156703 #116236]  INFO -- : [21a2689a-25e7-4e0e-829b-b600d11a6109] Completed 200 OK in 1ms (Views: 0.4ms)
+I, [2021-02-25T00:12:12.260495 #116236]  INFO -- : [4d019708-27b7-4136-b2df-32f9c04b4571] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:12:12 +0100
+I, [2021-02-25T00:12:12.260936 #116236]  INFO -- : [4d019708-27b7-4136-b2df-32f9c04b4571] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:12:12.261439 #116236]  INFO -- : [4d019708-27b7-4136-b2df-32f9c04b4571] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-25T00:12:12.261562 #116236]  INFO -- : [4d019708-27b7-4136-b2df-32f9c04b4571] Completed 200 OK in 1ms (Views: 0.4ms)
+I, [2021-02-25T00:12:12.304645 #116236]  INFO -- : [e744c873-843a-4153-9d8e-45c278f6c280] Started GET "/favicon.ico" for 127.0.0.1 at 2021-02-25 00:12:12 +0100
+F, [2021-02-25T00:12:12.305110 #116236] FATAL -- : [e744c873-843a-4153-9d8e-45c278f6c280]   
+F, [2021-02-25T00:12:12.305148 #116236] FATAL -- : [e744c873-843a-4153-9d8e-45c278f6c280] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2021-02-25T00:12:12.305165 #116236] FATAL -- : [e744c873-843a-4153-9d8e-45c278f6c280]   
+F, [2021-02-25T00:12:12.305197 #116236] FATAL -- : [e744c873-843a-4153-9d8e-45c278f6c280] actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+[e744c873-843a-4153-9d8e-45c278f6c280] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+[e744c873-843a-4153-9d8e-45c278f6c280] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[e744c873-843a-4153-9d8e-45c278f6c280] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+[e744c873-843a-4153-9d8e-45c278f6c280] activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+[e744c873-843a-4153-9d8e-45c278f6c280] railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[e744c873-843a-4153-9d8e-45c278f6c280] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[e744c873-843a-4153-9d8e-45c278f6c280] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[e744c873-843a-4153-9d8e-45c278f6c280] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[e744c873-843a-4153-9d8e-45c278f6c280] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2021-02-25T00:25:47.320740 #116236]  INFO -- : [d7dffb15-ebe8-4965-a726-1a3e4c99bfe2] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:25:47 +0100
+I, [2021-02-25T00:25:47.321185 #116236]  INFO -- : [d7dffb15-ebe8-4965-a726-1a3e4c99bfe2] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:25:47.321661 #116236]  INFO -- : [d7dffb15-ebe8-4965-a726-1a3e4c99bfe2] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-25T00:25:47.321814 #116236]  INFO -- : [d7dffb15-ebe8-4965-a726-1a3e4c99bfe2] Completed 200 OK in 1ms (Views: 0.4ms)
+I, [2021-02-25T00:30:09.236868 #116236]  INFO -- : [477a50fe-3e4f-4c29-8545-b4ecabfc0539] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:30:09 +0100
+I, [2021-02-25T00:30:09.237273 #116236]  INFO -- : [477a50fe-3e4f-4c29-8545-b4ecabfc0539] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:30:09.237725 #116236]  INFO -- : [477a50fe-3e4f-4c29-8545-b4ecabfc0539] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-25T00:30:09.237884 #116236]  INFO -- : [477a50fe-3e4f-4c29-8545-b4ecabfc0539] Completed 200 OK in 1ms (Views: 0.4ms)
+I, [2021-02-25T00:35:26.622654 #116236]  INFO -- : [0c93056d-22ac-4f15-a4d9-169c8e74e940] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:35:26 +0100
+I, [2021-02-25T00:35:26.623104 #116236]  INFO -- : [0c93056d-22ac-4f15-a4d9-169c8e74e940] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:35:26.623484 #116236]  INFO -- : [0c93056d-22ac-4f15-a4d9-169c8e74e940] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+I, [2021-02-25T00:35:26.623580 #116236]  INFO -- : [0c93056d-22ac-4f15-a4d9-169c8e74e940] Completed 200 OK in 0ms (Views: 0.3ms)
+I, [2021-02-25T00:38:02.659029 #116236]  INFO -- : [a12f33c6-d3e3-4a0c-a42d-85f5e8f99c53] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:38:02 +0100
+I, [2021-02-25T00:38:02.659409 #116236]  INFO -- : [a12f33c6-d3e3-4a0c-a42d-85f5e8f99c53] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:38:02.659748 #116236]  INFO -- : [a12f33c6-d3e3-4a0c-a42d-85f5e8f99c53] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-25T00:38:02.659858 #116236]  INFO -- : [a12f33c6-d3e3-4a0c-a42d-85f5e8f99c53] Completed 200 OK in 0ms (Views: 0.2ms)
+I, [2021-02-25T00:39:03.562271 #116236]  INFO -- : [a14a3425-1c8d-485b-b02a-99e34d0f8394] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:39:03 +0100
+I, [2021-02-25T00:39:03.562664 #116236]  INFO -- : [a14a3425-1c8d-485b-b02a-99e34d0f8394] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:39:03.562995 #116236]  INFO -- : [a14a3425-1c8d-485b-b02a-99e34d0f8394] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-25T00:39:03.563129 #116236]  INFO -- : [a14a3425-1c8d-485b-b02a-99e34d0f8394] Completed 200 OK in 0ms (Views: 0.3ms)
+I, [2021-02-25T00:41:58.767720 #116236]  INFO -- : [fe805023-8a7c-448e-9bde-862990085f33] Started GET "/api/status" for 127.0.0.1 at 2021-02-25 00:41:58 +0100
+I, [2021-02-25T00:41:58.768148 #116236]  INFO -- : [fe805023-8a7c-448e-9bde-862990085f33] Processing by ApplicationController#status as HTML
+I, [2021-02-25T00:41:58.768464 #116236]  INFO -- : [fe805023-8a7c-448e-9bde-862990085f33] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+I, [2021-02-25T00:41:58.768579 #116236]  INFO -- : [fe805023-8a7c-448e-9bde-862990085f33] Completed 200 OK in 0ms (Views: 0.2ms)
